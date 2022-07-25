@@ -149,7 +149,10 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
-            if (showButton) const MyDeactivatingWidget()
+            if (showButton)
+              MyDeactivatingWidget(
+                counter: _counter,
+              )
           ],
         ),
       ),
@@ -158,8 +161,9 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
 }
 
 class MyDeactivatingWidget extends StatefulWidget {
-  const MyDeactivatingWidget({Key? key}) : super(key: key);
-
+  const MyDeactivatingWidget({Key? key, required this.counter})
+      : super(key: key);
+  final int counter;
   @override
   State<MyDeactivatingWidget> createState() => _MyDeactivatingWidgetState();
 }
@@ -239,7 +243,7 @@ class _MyDeactivatingWidgetState extends State<MyDeactivatingWidget>
     print('_MyDeactivatingWidgetState build()');
     return ElevatedButton(
       onPressed: () {},
-      child: const Text('Deactivating widget'),
+      child: Text('Counter = ${widget.counter}'),
     );
   }
 }
