@@ -12,7 +12,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     print('MyApp build()');
     return MaterialApp(
-      debugShowMaterialGrid: true,
       title: 'Flutter Demo Lifecycle App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -135,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
                   },
                   child: const Text('Show/Hide Button'),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 ElevatedButton(
